@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import  Body from './Body';
+import  Footer from './Footer';
+import  Header from './Header';
+import  SideNav from './SideNav';
 
 class MainTesting extends Component {
     render() {
         return (
             <div>
-                Hi this is main testing!!!!
+               <Header/>
+               <SideNav/>
+               <Body/>
+               <Footer/>
             </div>
         );
     }
