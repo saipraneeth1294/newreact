@@ -3,24 +3,22 @@ import React, { useState,useReducer, useEffect } from 'react';
 function CustomeDropDowns(props) {
 
     let[drpVal,setDrpVal]=useState([]);
+    let[error,setErrorVal]=useState();
     let dropDownChange=(e)=>{
         let k=e.target.value;
         let name=e.target.name;
-       // let val=[...drpVal];
-        //val[e.target.className]=e.target.value;
-        // setDrpVal([...drpVal,
-        //     [e.target.className]=e.target.value
-        // ]);
+      
         setDrpVal(prev=>({...prev,[name]:k}));
         //props.valueHandle();
         
     };
    useEffect(()=>{
-    if(drpVal&&drpVal.length!=0){
+    if(drpVal&&drpVal.length!==0){
         props.valueHandle(drpVal);
-        //console.log(drpVal);
     }
-   },[drpVal])
+
+
+   },[drpVal,error])
     return (
         <div>
            
