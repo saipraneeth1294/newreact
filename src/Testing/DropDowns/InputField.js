@@ -3,14 +3,25 @@ import CustomeDropDowns from './CustomeDropDowns';
 
 
 class InputField extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             inputValue:0,
             arrayVal:[]
         };
     }
-
+     valueHandle=(index,input)=>{
+         console.log("value handle");
+         let value=Object.assign({},this.state.arrayVal[index]);
+        //  console.log(this.state.arrayVal);
+        value=input;
+        let values= Object.assign({},this.state.arrayVal);
+        values[index]=value;
+        //console.log(values);
+        this.setState({arrayVal:values},()=>{console.log(this.state.arrayVal);});
+        
+        
+    };
     onButtonClick(){
         console.log(this.state.arrayVal);
     }
@@ -18,7 +29,7 @@ class InputField extends Component {
         let ListDrp=[];
         for(let i=0;i<this.state.inputValue;i++){
             ListDrp.push(
-                <CustomeDropDowns key={i} arrayVal={this.state.arrayVal}/>
+                <CustomeDropDowns key={i} value={i} valueHandle={this.valueHandle.bind(this,i)}/>
             );
         }
         return (
