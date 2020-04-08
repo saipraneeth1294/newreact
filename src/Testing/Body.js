@@ -5,7 +5,8 @@ class Body extends Component {
     render() {
         return (
             <div>
-               <InputField/>
+               {/* <InputField/> */}
+               Body
             </div>
         );
     }

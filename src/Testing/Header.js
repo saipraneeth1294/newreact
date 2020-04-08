@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
+import AppBar  from '@material-ui/core/AppBar';
+import { Toolbar,IconButton   } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 
 class Header extends Component {
     render() {
         return (
-            <div>
-                <div className='side-nav sn-bg-4'>
-                    <nav className='nav navbar-nav nav-flex-icons ml-auto'>
-                        Header
-                    </nav>
-                </div>
-            </div>
+           <>
+           <AppBar className='Appbar'>
+               <Toolbar>
+               <IconButton edge="start" className='IconButton' color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+               </Toolbar>
+               
+           </AppBar>
+           </>
         );
     }
 }
