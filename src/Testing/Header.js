@@ -4,7 +4,11 @@ class Header extends Component {
     render() {
         return (
             <div>
-                Header Content
+                <div className='side-nav sn-bg-4'>
+                    <nav className='nav navbar-nav nav-flex-icons ml-auto'>
+                        Header
+                    </nav>
+                </div>
             </div>
         );
     }

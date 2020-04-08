@@ -7,29 +7,31 @@ class InputField extends Component {
         super(props);
         this.state={
             inputValue:0,
-            arrayVal:[]
+            arrayVal:[],
+            validate:false
         };
     }
      valueHandle=(index,input)=>{
          console.log("value handle");
          let value=Object.assign({},this.state.arrayVal[index]);
-        //  console.log(this.state.arrayVal);
+        
         value=input;
         let values= Object.assign({},this.state.arrayVal);
         values[index]=value;
-        //console.log(values);
+        
         this.setState({arrayVal:values},()=>{console.log(this.state.arrayVal);});
         
         
     };
     onButtonClick(){
-        console.log(this.state.arrayVal);
+        this.setState({validate:true});
+        //console.log(this.state.arrayVal);
     }
     render() {
         let ListDrp=[];
         for(let i=0;i<this.state.inputValue;i++){
             ListDrp.push(
-                <CustomeDropDowns key={i} value={i} valueHandle={this.valueHandle.bind(this,i)}/>
+                <CustomeDropDowns key={i} value={i} validateHandler={this.state.validate}  valueHandle={this.valueHandle.bind(this,i)}/>
             );
         }
         return (
