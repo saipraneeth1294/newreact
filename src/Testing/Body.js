@@ -6,7 +6,7 @@ class Body extends Component {
     render() {
         return (
             <>
-            <Box>
+            <Box className='Body'>
                 Body
             </Box>
             </>

@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import {Box,Container, Grid, AppBar,Paper} from '@material-ui/core'
+import { Box, Container, Grid, AppBar, Paper } from '@material-ui/core'
 
-class Footer extends Component {
-    render() {
-        return (
-           <>
-            <Box width={1} height='10%' style={{bottom:'0',position:'fixed', color:'Purple'}} position='static'>
-                <Grid>
-                  <Paper elevation={3} height='100%'>
-                      <Box height='100%'>
-                        Footer
-                      </Box>
-                    </Paper>
-                    </Grid>
-            </Box>
-           </>
-        );
-    }
+class Footers extends Component {
+  render() {
+    return (
+      <>
+      
+        <Box  width={1}  style={{ bottom: '0', position: 'fixed', color: 'Purple' }} position='static'>
+         <Container>
+         Footer
+         </Container> 
+        </Box>
+      </>
+    );
+  }
 }
 
-export default Footer;
+export default Footers;
