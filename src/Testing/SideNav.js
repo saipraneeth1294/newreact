@@ -14,7 +14,7 @@ class SideNav extends Component {
         // className={classes.drawer}
         variant="persistent"
         anchor="left"
-        //open={this.props.open}
+        open={this.props.open}
        
       > This is the drawer
       </Drawer>

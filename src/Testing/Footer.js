@@ -5,12 +5,13 @@ class Footers extends Component {
   render() {
     return (
       <>
-      
+     
         <Box  width={1}  style={{ bottom: '0', position: 'fixed', color: 'Purple' }} position='static'>
-         <Container>
+        <Paper elevation={9}>
          Footer
-         </Container> 
+         </Paper>
         </Box>
+        
       </>
     );
   }

@@ -26,7 +26,8 @@ class MainTesting extends Component {
     }));
     headerIconClicked=()=>{
         console.log('Header clicked');
-        this.setState({open:true});
+        var val= this.state.open;
+        this.setState({open:!val});
     };
     render() {
         return (
@@ -34,8 +35,7 @@ class MainTesting extends Component {
                 
                 <Header  headerIconClicked={this.headerIconClicked} myStyles={this.useStyles}/>
                
-               {/* <SideNav open={this.state.open}/> */}
-               <Func></Func>
+               <SideNav open={this.state.open}/>
 
                <Body/>
 
