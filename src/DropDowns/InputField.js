@@ -12,7 +12,6 @@ class InputField extends Component {
         };
     }
      valueHandle=(index,input)=>{
-        // console.log("value handle");
          let value=Object.assign({},this.state.arrayVal[index]);
         
         value=input;
@@ -25,7 +24,6 @@ class InputField extends Component {
     };
     onButtonClick(){
         this.setState({validate:true});
-        //console.log(this.state.arrayVal);
     }
     render() {
         let ListDrp=[];

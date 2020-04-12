@@ -1,5 +1,5 @@
 import React, { Component,Fragment } from 'react';
-import InputField from './DropDowns/InputField';
+import InputField from '../DropDowns/InputField';
 import { Box,Grid, Paper,Typography,List,ListItem,ListItemText,ListItemLink } from '@material-ui/core';
 //import List from '@material-ui/core/List';
 //import ListItem from '@material-ui/core/ListItem';
@@ -10,6 +10,10 @@ class Body extends Component {
     constructor(props){
         super(props);
     }
+
+    selected=(id)=>{
+        this.props.handleExerciseChange(id);
+    };
     render() {
         const styles={
             Papers:{
@@ -21,6 +25,8 @@ class Body extends Component {
                 overflowY: 'auto'
             }
         }
+        const{exercise}= this.props;
+        const{title,description}=exercise;
         const exercises=this.props.exercises;
         return (
             <>
@@ -29,25 +35,35 @@ class Body extends Component {
                 <Paper elevation={5} style={styles.Papers}>
                 {exercises
                  .map(([group,exercises])=>
-                 <Fragment key={group}>
-                    <Typography variant='h5' >
-                        {group}
-                    </Typography>
 
-                     <List component="ul" aria-label="secondary mailbox folders">
-                         {exercises.map(({id,title})=>
-                             <ListItem button key={id}>
-                             <ListItemText primary={title}/>
-                           </ListItem>
-                            )}
-                   </List>
-                   </Fragment>
+                 !this.props.category || this.props.category===group?
+                 <Fragment key={group}>
+                 <Typography variant='h5' style={{textTransform:'capitalize'}}>
+                     {group}
+                 </Typography>
+
+                  <List 
+                  component="ul"
+                   aria-label="secondary mailbox folders"
+                   >
+                      {exercises.map(({id,title})=>
+                          <ListItem 
+                          button key={id}
+                          onClick={()=>this.selected(id)}
+                          >
+                          <ListItemText primary={title}/>
+                        </ListItem>
+                         )}
+                </List>
+                </Fragment>
+                 :null
+                
                 )}
                 </Paper>
             </Grid>
             <Grid item sm>
                 <Paper elevation={5} style={styles.Papers}>
-                Right
+                {title}
                 </Paper>
             </Grid>
           </Grid>
