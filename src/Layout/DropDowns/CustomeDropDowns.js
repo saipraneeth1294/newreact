@@ -32,7 +32,7 @@ function CustomeDropDowns(props) {
     };
    useEffect(()=>{
        //if(props.validateHandler){
-           console.log(props.validateHandler);
+          // console.log(props.validateHandler);
        //}
     if(drpVal&&drpVal.length!==0){
         props.valueHandle(drpVal);

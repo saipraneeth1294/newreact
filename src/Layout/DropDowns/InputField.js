@@ -12,14 +12,14 @@ class InputField extends Component {
         };
     }
      valueHandle=(index,input)=>{
-         console.log("value handle");
+        // console.log("value handle");
          let value=Object.assign({},this.state.arrayVal[index]);
         
         value=input;
         let values= Object.assign({},this.state.arrayVal);
         values[index]=value;
         
-        this.setState({arrayVal:values},()=>{console.log(this.state.arrayVal);});
+        this.setState({arrayVal:values},()=>{});
         
         
     };

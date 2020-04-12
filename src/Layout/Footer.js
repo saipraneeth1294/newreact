@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Box, Container, Grid, AppBar, Paper } from '@material-ui/core'
+import { Box, Container, Grid, AppBar, Paper } from '@material-ui/core';
+
 
 class Footers extends Component {
   render() {

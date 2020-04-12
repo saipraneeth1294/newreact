@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MainTesting from './Testing/MainTesting';
+import MainTesting from './Layout/MainTesting';
 
 function App() {
   return (

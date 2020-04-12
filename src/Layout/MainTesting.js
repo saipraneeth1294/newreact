@@ -5,15 +5,32 @@ import  Header from './Header';
 import  SideNav from './SideNav';
 import Func from './Func'
 import { makeStyles } from '@material-ui/core/styles';
+import{muscles,exercises} from '../Store';
 
 class MainTesting extends Component {
     constructor(){
         super();
         this.state={
             open:false,
+            exercises,
+            exercise:[]
         }
 
     }
+    getExercisesByMuscles(){
+        return Object.entries(
+            this.state.exercises.reduce((exercises, exercise) => {
+                const { muscles } = exercise
+                
+                exercises[muscles] = exercises[muscles]
+                  ? [...exercises[muscles], exercise]
+                  : [exercise]
+                  //console.log(exercises)
+                return exercises
+              }, {})
+            )
+    }
+        
      
      useStyles = makeStyles((theme) => ({
         appBar: {
@@ -25,11 +42,12 @@ class MainTesting extends Component {
           },
     }));
     headerIconClicked=()=>{
-        console.log('Header clicked');
+       // console.log('Header clicked');
         var val= this.state.open;
         this.setState({open:!val});
     };
     render() {
+        const exercises = this.getExercisesByMuscles()
         return (
             <div>
                 
@@ -37,7 +55,7 @@ class MainTesting extends Component {
                
                <SideNav open={this.state.open}/>
 
-               <Body/>
+               <Body  exercises={exercises}/>
 
                <Footers/>
                
