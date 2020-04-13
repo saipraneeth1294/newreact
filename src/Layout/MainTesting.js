@@ -55,7 +55,7 @@ class MainTesting extends Component {
     handleExerciseChange = (id) => {
         this.setState((prevState) => {
             exercise: prevState.exercises.find(ex => ex.id === id)
-        },()=>{console.log(this.state.exercise)})
+        },()=>{console.log(this.state. exercise)})
 
     };
     render() {
