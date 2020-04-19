@@ -10,12 +10,13 @@ import {Provider as ReactProvider} from 'react-redux';
 
 
 const store=configureStore();
+
 ReactDOM.render(
+  <ReactProvider store={store}>
   <React.StrictMode>
-    <ReactProvider store={store}>
     <App />
-    </ReactProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </ReactProvider>,
   document.getElementById('root')
 );
 
