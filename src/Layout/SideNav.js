@@ -8,6 +8,7 @@ class SideNav extends Component {
     }
     render() {
         return (
+            this.props.sideNavEnable?
             <Box className='SideNav' >
                 Side Nav
                 <Drawer 
@@ -20,6 +21,7 @@ class SideNav extends Component {
       </Drawer>
       
             </Box>
+            :null
         );
     }
 }
