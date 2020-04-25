@@ -7,9 +7,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './Layout2/Redux/configureStore';
 import {Provider as ReactProvider} from 'react-redux';
+import initialStore from './Layout2/Redux/InitialState'
 
 
-const store=configureStore();
+const store=configureStore(initialStore);
 
 ReactDOM.render(
   <ReactProvider store={store}>

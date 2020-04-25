@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as courseActions from '../Redux/Actions/CourseAction'
 import PropTypes from 'prop-types';
 import { bindActionCreators} from 'redux';
+import ChildCoursePage from './ChildCoursePage';
 
 class CoursePage extends Component {
     constructor(props){
@@ -10,10 +11,15 @@ class CoursePage extends Component {
         this.state={
             course:{
                 title:''
-            }
+            },
+            items:[1]
         };
     }
-           
+        componentDidMount(){
+            // this.props.actions.loadCourses().catch(error=>{
+            //     alert("Error");
+            // })
+        }   
     handleChange=(e)=>{
         const course= {...this.state.course,title:e.target.value};
         
@@ -30,18 +36,21 @@ class CoursePage extends Component {
 
     }
     render() {
+        console.log(this.props)
         return (
-           <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
                <h2>Courses</h2>
-               <h3>Add Courses</h3>
-               <input type='text'
-                 onChange={this.handleChange} 
-                    value={this.state.course.title}/>
-               <input type='submit' value='Save'/>
+               <input type='text' onChange={this.handleChange} value={this.state.course.title}/>
+               <input type='submit' value='Save' />               
                { this.props.courses.map(course=>{
                return <div key={course.title}>{course.title}</div>}
                 )}
-           </form>
+
+                {/* {this.state.items.map(item=>
+                   <ChildCoursePage key={item}/>
+                )} */}
+                </form>
+           
         );
     }
 }
@@ -52,7 +61,8 @@ CoursePage.propTypes={
 
 function mapStateToProps(state){
     return{
-        courses:state.courses
+        courses:state.courses,
+      
     }
 }
 function mapDispatchToProps(dispatch){
